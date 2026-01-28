@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
-import { Plus, Edit } from 'lucide-react'
+import { Plus, Edit, Upload } from 'lucide-react'
 import { DeleteProductButton } from '@/components/admin/DeleteProductButton'
 import Image from 'next/image'
 
@@ -12,12 +12,20 @@ export default async function AdminProductsPage() {
     <div>
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Products</h1>
-        <Link 
-          href="/admin/products/new" 
-          className="bg-black text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-gray-800"
-        >
-          <Plus className="w-4 h-4" /> Add Product
-        </Link>
+        <div className="flex gap-3">
+          <Link 
+            href="/admin/products/import" 
+            className="border border-gray-300 text-gray-700 px-4 py-2 rounded flex items-center gap-2 hover:bg-gray-50"
+          >
+            <Upload className="w-4 h-4" /> Bulk Import
+          </Link>
+          <Link 
+            href="/admin/products/new" 
+            className="bg-black text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-gray-800"
+          >
+            <Plus className="w-4 h-4" /> Add Product
+          </Link>
+        </div>
       </div>
 
       <div className="bg-white rounded-lg shadow overflow-hidden">
